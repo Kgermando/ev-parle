@@ -1,0 +1,33 @@
+
+.sondages {
+    line-height: 1.1;
+}
+
+.sondages-header {
+    background-color: #022464;
+    color: #ffcd40;
+    font-size: 700;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.sondages .sondages-body {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.sondages .sondages-body .actu-body-card {
+    padding-right: 5px;
+}
+
+.vote-green {
+    color: #0076B7;
+}
+
+.vote-orange {
+    color: #aa4b0c;
+}
+
+.vote-blue {
+    color: #0c3468;
+}

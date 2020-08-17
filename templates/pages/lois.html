@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Propositions des Lois{% endblock title %}
+
+{% block content %}
+
+<div class="lois">
+    <div class="lois-header">
+        <div class="container banner">
+            <h2>Propositions des lois</h2>
+        </div>
+    </div>
+    <div class="container lois-body">
+        <div class="row">
+            {% for lois in lois_list %}
+                <div class="col-md-6">
+                    <div class="lois-list">
+                        <div class="card mb-3">
+                            <div class="row no-gutters">
+                                <div class="col-md-4">
+                                    <img src="{{lois.lois_image.url}}" class="card-img" alt="{{ lois.lois_title }}">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><a href="{{ lois.get_absolute_url }}"> {{ lois.lois_title|truncatechars:30 }}</a></h5>
+                                        <p class="card-text">{{ lois.lois_content|truncatechars:120 }}</p>
+                                        <p class="card-text"><small class="text-muted">{{ lois.created }}</small></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% comment %} <div class="pagination">
+      <span class="step-links">
+        Partager{{ lois_list.paginator.num_pages }}page<br>
+        {% if lois_list.has_previous %}
+          {%ifnotequal lois_list.previous_page_number 1 %}
+            <a href="?page=1">Accueil</a>
+          {% endifnotequal %}
+            <a href="?page={{ lois_list.previous_page_number }}">Page précédente</a>
+
+        {% endif %}
+          <span class="current">
+             {{ lois_list.number }} page
+          </span>
+        {% if lois_list.has_next %}
+            <a href="?page={{ lois_list.next_page_number }}">Page suivante</a>
+            {%ifnotequal lois_list.next_page_number test_case.paginator.num_pages %}
+              <a href="?page={{ lois_list.paginator.num_pages}}">Queue</a>
+            {% endifnotequal %}
+        {% endif %}
+      </span>
+</div> {% endcomment %}
+
+<div class="pagination">
+    <span class="step-links">
+        {% if lois_list.has_previous %}          
+            <a href="?page={{ lois_list.previous_page_number }}">précédente</a>
+        {% endif %}
+
+        <span class="current">
+          {{ lois_list.number }}
+        </span>
+
+        {% if lois_list.has_next %}
+            <a href="?page={{ lois_list.next_page_number }}">suivante</a>
+        {% endif %}
+    </span>
+</div>
+
+{% endblock content %}

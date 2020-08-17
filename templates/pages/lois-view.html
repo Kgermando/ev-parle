@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %} {{lois.lois_title}} {% endblock title %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="container lois-detail">
+        <h1 class="lois-detail-header p-3">{{ lois.lois_title }}</h1>
+        <img src="{{lois.lois_image.url}}" alt="{{ lois.lois_title }}" class="container card-img lois-detail-img"/>
+        <div class="container pt-2">
+            <p class="ltext-muted">Proposée par {{ lois.propostion_nom }}</p>
+        </div>
+        
+        <div class="lois-detail-content p-3">
+            <p class="lois-detail-body text-left ">{{ lois.lois_content }}</p>
+            <p class="text-muted ">{{ lois.created }}</p>
+        </div>
+
+        <div class="container card">
+            <h4 class="card-title">Opinions</h4>
+            {% for comment in comments %}
+            <div class="card-body">
+                <p class="text-user">
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                    </svg>
+                    {{ comment.comment_title }}</p>
+                <p class="text-comment">{{ comment.comment }}</p> 
+                <p class="text-muted">{{ comment.created }}</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <br>
+        <br>
+
+        <div class="container card">
+            {% if user.is_active %}
+                <form action="" method= 'POST'> <!-- action = "" signifie que le formulaire sera affiché sur la même page <p> -->
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Donnez votre opinion</label>
+                        <textarea rows="5" class="form-control" name="comment" id="comment" 
+                            placeholder="Ecrivez votre opinion ici..."></textarea>
+                    </div>
+                    {% comment %} {{ form.as_p }} <!-- тег 'as_p'enveloppe le formulaire dans une balise <p> --> {% endcomment %}
+                    <div class="form-row mt-2">
+                        <div class="form-group col text-center">
+                            <input type="submit" value="Validez votre opinion"
+                                    class="btn btn-primary btn-rounded btn-4 font-weight-semibold mx-auto btn-v-4 btn-h-5"
+                                    name="submit_button" id="submit_button"
+                                    data-loading-text="Loading...">
+                        </div>
+                    </div>
+                </form>
+            {% else %}
+                <div class="text-commentaire p-3">Pour donner votre opinion, veuillez d'abord vous connecter</div>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock content %}

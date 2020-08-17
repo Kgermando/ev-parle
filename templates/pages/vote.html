@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ sondage.sondage_title }}{% endblock %}
+
+{% block content %}
+<div class="container">
+
+    <div class="container lois-detail">
+        <h1 class="lois-detail-header p-3">{{ sondage.sondage_title }}</h1>
+        <img src="{{sondage.sondage_image.url}}" alt="{{ sondage.sondage_title }}" class="container card-img lois-detail-img"/>
+        <div class="container pt-2">
+            <p class="ltext-muted">Proposée par {{ sondage.propostion_nom }}</p>
+        </div>
+        
+        <div class="lois-detail-content p-3">
+            <p class="lois-detail-body text-left ">{{ sondage.sondage_content  }}</p>
+            <p class="text-muted ">{{ sondage.created }}</p>
+        </div>
+
+        <div class="container ">
+
+            <div class="alert alert-primary" role="alert">
+                Accord &mdash; <strong>{{ sondage.vote_yes }}</strong>
+            </div>
+
+            <div class="alert alert-secondary" role="alert">
+                Pas d'accord &mdash; <strong>{{ sondage.vote_no }}
+            </div>
+
+            <div class="alert alert-success" role="alert">
+                Neutre &mdash; <strong>{{ sondage.vote_null }}
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{ sondage.sondage_title }}</h3>
+                </div>
+
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+
+                            <p>{{ sondage.sondage_content }}</p>
+                        </div>
+                    </div>
+
+                <ul class="list-group">
+                    <li class="list-group-item">Accord &mdash; <strong>{{ sondage.vote_yes }}</strong></li>
+                    <li class="list-group-item">Pas d'accord &mdash; <strong>{{ sondage.vote_no }}</strong></li>
+                    <li class="list-group-item">Neutre &mdash; <strong>{{ sondage.vote_null }}</strong></li>
+                </ul>
+
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <hr />
+                        {% if user.is_active %}
+                            <form method="POST">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="sondage" value="option1" required>
+                                                Je suis d'accord
+                                        </label> &nbsp;
+                                        <label>
+                                            <input type="radio" name="sondage" value="option2">
+                                                je ne suis pas d'accord
+                                        </label> &nbsp;
+                                        <label>
+                                            <input type="radio" name="sondage" value="option3">
+                                                je m'abstiens
+                                        </label> &nbsp;
+                                    </div>
+                                </div>
+
+                                <input type="hidden" name="id" value="1">
+
+                                <hr />
+
+                                <button type="submit" class="btn btn-info">
+                                    Submit
+                                </button>
+                            </form>
+                        {% else %}
+                            <div class="text-commentaire p-3">Pour donner votre opinion, veuillez d'abord vous connecter, si vous n'avez pas encore de compte merci de s'enregistrer</div>
+                        {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

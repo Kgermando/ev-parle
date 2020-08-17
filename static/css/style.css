@@ -1,0 +1,105 @@
+/* @import url("http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,800,700,900"); */
+
+@font-face {
+    font-family: "Raleway";
+    src: url("../fonts/Raleway-VariableFont_wght.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Raleway', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 16px;
+    box-sizing: content-box;
+    min-height: 600px;
+    margin:0 auto; width:100%;
+}
+
+.content {
+    min-width: 86vh;
+    margin-top: 0 auto;
+    position: relative;
+    display: block;
+    overflow: auto;
+    background-color: #ffffff;
+}
+
+.boutton {
+    background-color: #0076B7;
+}
+
+.nav-logo {
+    height: 60px;
+}
+
+footer{
+    background-color: #000000;
+    font-size: 12px;
+    text-align: center;
+}
+
+hr {
+    width: 8%;
+    background-color: #dd0000;
+    height: 5px;
+}
+
+/*  */
+.card { 
+    border: none;
+}
+
+.n {
+    margin-top: 1rem;
+}
+
+.m {
+    margin-top: 4rem;
+}
+
+.l {
+    background-color: #0076B7;
+    padding: 1rem;
+    color: #ffffff;
+}
+
+.o {
+    background-color: #0076B7;
+    color: #ffffff;
+}
+
+q {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.titre {
+    text-align: center;
+}
+
+.titre .card-title{
+    text-align: center;
+    font-weight: 800;
+    font-size: 28px;
+    color: #0076B7;
+    margin-top: 2rem;
+    padding-bottom: 10px;
+}
+
+.card-deck {
+    text-align: center;
+}
+
+.card-deck .card-title {
+    text-align: center;
+    color: #0076B7;
+    font-weight: 600;
+}
+
+.card-deck .card-text { 
+    text-align: center;
+}
+
+.card-img-top {
+    color: #dd0000;
+}

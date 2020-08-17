@@ -1,0 +1,48 @@
+{% load static %}
+
+<nav class="navbar sticky-top navbar-expand-lg sticky-top navbar-dark shadow" style="background-color: #0076B7;"">
+  <a class="navbar-brand" href="{% url 'app:home' %}">
+      <img class="nav-logo" src="{% static 'img/ass-nationale.jpg' %}" alt=""/>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    {% with request.resolver_match.url_name as url_name %}
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item {% if url_name == 'home' %}active{% endif %}">
+          <a class="nav-link" href="{% url 'app:home' %}">Acceuil</a>
+        </li>
+          <li class="nav-item {% if url_name == 'actualite' %}active{% endif %}">
+          <a class="nav-link" href="{% url 'actualite:actualite' %}">Actualités</a>
+        </li>
+        <li class="nav-item {% if url_name == 'lois' %}active{% endif %}">
+          <a class="nav-link" href="{% url 'app:lois' %}">Propositions des Lois</a>
+        </li>
+        <li class="nav-item {% if url_name == 'sondage' %}active{% endif %}">
+          <a class="nav-link" href="{% url 'sondage:sondage' %}">Sondage</a>
+        </li>
+        <li class="nav-item {% if url_name == 'about' %}active{% endif %}">
+          <a class="nav-link" href="{% url 'ourteam:about' %}">A Propos de Nous</a>
+        </li>
+        <li class="nav-item {% if url_name == 'contact' %}active{% endif %}">
+          <a class="nav-link" href="{% url 'app:contact' %}">Contact</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        {% if not request.user.is_authenticated %}
+          <li class="nav-item {% if url_name == 'login' %}active{% endif %}">
+            <a class="nav-link" href="{% url 'login' %}">Login</a>
+          </li>
+          <li class="nav-item {% if url_name == 'register' %}active{% endif %}">
+            <a class="nav-link" href="{% url 'register' %}">Register</a>
+          </li>
+        {% else %}
+          <li class="nav-item {% if url_name == 'logout' %}active{% endif %}">
+            <a class="nav-link" href="{% url 'logout' %}">Déconnexion</a>
+          </li>
+        {% endif %}
+      </ul>
+    {% endwith %}
+  </div>
+</nav>

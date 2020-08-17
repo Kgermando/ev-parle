@@ -1,0 +1,79 @@
+@media screen and (min-width: 600px) {
+    .actualite {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 100px;
+    }
+    .actualite-home {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .actualite-home .actualite-header {
+        flex: 60%;
+        justify-content: center;
+    }
+
+    .actualite-home .actualite-header .actu-card-header {
+        width: 36rem;
+    }
+
+    .actualite-home .actualite-header .actu-card-header-text {
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .actualite-home .actualite-side {
+        flex: 40%;
+        justify-content: center;
+    }
+
+    .actualite-home .actualite-side .actu-card-side {
+        max-width: 540px;
+    }
+
+    .actualite .actualite-body {
+        margin-top: 2rem;
+    }
+
+    .actualite .actualite-body .actu-body-card {
+       /* width: calc(100% - 33.3%); */
+       width: 100%; /* fallback if needed */
+       width: calc(100% - 3em);
+    } 
+
+    .actu-body-card-items {
+        min-width: 300px;
+        max-width: 300px;
+        width: 300px;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+    .actualite {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 20px;
+    }
+    .actualite-home {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+
+    }
+    .actualite-home .actualite-header {
+        flex: 100%;
+        justify-content: center;
+    }
+    .actualite-home .actualite-header .actu-card-header {
+        width: 100%
+    }
+}

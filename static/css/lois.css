@@ -1,0 +1,72 @@
+.lois {
+    line-height: 1.1;
+}
+
+.lois-header {
+    background-color: #022464;
+    color: #ffcd40;
+    font-size: 700;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.lois .lois-body {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.lois .lois-body .actu-body-card {
+    padding-right: 5px;
+}
+
+.lois-list {
+ display: flex;
+ flex-direction: row;
+ flex-wrap: wrap;
+ justify-content: center;
+}
+
+.lois-detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.lois-detail-header {
+    font-size: 40px;
+    text-align: center;
+}
+
+.lois-detail-img {
+    height: 400px;
+}
+
+.text-user {
+    font-weight: 700;
+}
+
+
+.banner-comment {
+    border-left: 6px solid red;
+    height: 40px;
+    /* margin-top: 20px; */
+    padding-top: 10px;
+    padding-left: 10px;
+    margin-bottom: 2rem;
+}
+
+.text-commentaire {
+    font-weight: 700;
+    color: #022464;
+}
+
+@media screen and (max-width: 600px) {
+    .lois-detail-header {
+        font-size: 24px;
+        text-align: center;
+    }
+    .lois-detail-img {
+ 
+        width: 100%;
+    }
+}

@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Contact{% endblock title %}
+
+{% block content %}
+
+
+
+<div class="contact-form">
+    <div class="contact-form-img">
+        <img src="{% static 'img/ass-nationale.jpg' %}" class="form-img" alt="...">
+    </div>
+
+    <div class="contact-form-forms">
+    <h2 class="banner">Contactez-Nous ici.</h2>
+        <div class="container">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">Nom</label>
+                        <input type="text" class="form-control" name="first_name" id="first_name" placeholder="First Name *" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">Prénom</label>
+                        <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Last Name *" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputAddress">Addresse email</label>
+                        <input type="email" class="form-control" name="email_id" id="email_id" placeholder="ex: gedeonntumba@eventdrc.com">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword4">Numéro téléphone</label>
+                        <input type="tel" class="form-control" name="phone_num" id="phone_num" onkeypress="return isNumberKey(event)" placeholder="+243..">
+                    </div>
+                </div>
+             
+                <div class="form-group">
+                    <label for="inputAddress2">Objet</label>
+                    <input type="text" class="form-control" id="objet_name" name="objet_name" placeholder="Objet de votre message">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Message</label>
+                    <textarea maxlength="5000" rows="5" class="form-control" name="message" id="message" placeholder="Ecrivez votre message ici..."></textarea>
+                </div>
+               <div class="form-row mt-2">
+                    <div class="form-group col text-center">
+                        <input type="submit" value="SEND MESSAGE"
+                                class="btn btn-primary btn-rounded btn-4 font-weight-semibold mx-auto btn-v-4 btn-h-5"
+                                name="submit_button" id="submit_button"
+                                data-loading-text="Loading...">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
