@@ -7,23 +7,39 @@ from django.contrib.auth.models import User
 
 from app.models import Home, Lois, ContactForm
 from app.forms import CommentForm, Comment
+
+from actualite.models import Actualite
+from sondage.models import Sondage
 # Create your views here.
 
 def home_view(request):
     home_list = Home.objects.all()
+    actualite = Lois.objects.all().order_by("-created")
     lois = Lois.objects.all().order_by("-created")
-    paginator = Paginator(lois, 2)
+    sondage = Lois.objects.all().order_by("-created")
+
+    paginator_lois = Paginator(lois, 2)
+    paginator_actualite = Paginator(lois, 2)
+    paginator_sondage = Paginator(lois, 2)
     page = request.GET.get('page')
     try:
-        lois_list = paginator.page(page)
+        actualite_list = paginator_actualite.page(page)
+        lois_list = paginator_lois.page(page)
+        sondage_list = paginator_lois.page(page)
     except PageNotAnInteger:
-        lois_list = paginator.page(1)
+        actualite_list = paginator_actualite.page(1)
+        lois_list = paginator_lois.page(1)
+        sondage_list = paginator_sondage.page(1)
     except EmptyPage:
-        lois_list = paginator.page(paginator.num_pages)
+        actualite_list = paginator_actualite.page(paginator_actualite.num_pages)
+        lois_list = paginator_lois.page(paginator_lois.num_pages)
+        sondage_list = paginator_sondage.page(paginator_sondage.num_pages)
 
     context = {
         'home_list': home_list,
-        'lois_list': lois_list
+        'actualite_list': actualite_list,
+        'lois_list': lois_list,
+        'sondage_list': sondage_list
     }
     template_name = 'pages/home.html'
     return render(request, template_name, context)
