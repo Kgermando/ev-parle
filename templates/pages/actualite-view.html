@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %} {{actualite_list.actu_title}} {% endblock title %}
+
+{% block content %}
+
+<div class="container">
+    <div class="container lois-detail">
+
+        <h1 class="lois-detail-header p-3">{{ actualite_list.actu_title }}</h1>
+        <img src="{{actualite_list.actu_image.url}}" alt="{{ actualite_list.actu_title }}" class="container card-img lois-detail-img"/>
+        <div class="container pt-2">
+            <p class="ltext-muted">Proposée par {{ actualite_list.propostion_nom }}</p>
+        </div>
+        
+        <div class="lois-detail-content p-3">
+            <p class="lois-detail-body text-left ">{{ actualite_list.actu_content }}</p>
+            <p class="text-muted ">{{ actualite_list.created }}</p>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock content %}

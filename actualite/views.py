@@ -36,8 +36,11 @@ def actualite_view_home(request):
     return render(request, template_name, context)
 
 
-def actualite_view_detail(request, pk):
-    context = {}
+def actualite_view_detail(request, id):
+    actualite_list = Actualite.objects.get(id=id)
+    context = {
+        "actualite_list": actualite_list
+    }
     template_name = 'pages/actualite-view.html'
     return render(request, template_name, context)
 

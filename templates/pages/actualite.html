@@ -3,7 +3,7 @@
 {% block title %}Actualités{% endblock title %}
 
 {% block content %}
-{% comment %} <div class="lois-header">
+{% comment %} <div class="actu-header">
     <div class="container banner">
         <h2>Actualités</h2>
     </div>
@@ -16,7 +16,7 @@
                     <img src="{{ actu.actu_image.url }}" class="card-img-top" alt="{{ actu.actu_title }}">
                     <div class="card-body">
                         <p class="card-title actu-card-header-text">
-                            {{ actu.actu_title }}
+                            <a href="{{ actu.get_absolute_url }}"> {{ actu.actu_title|truncatechars:150 }}</a>
                         </p>
                     </div>
                 </div>
@@ -31,8 +31,8 @@
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
-                                <h5 class="card-title">{{ actu.actu_title|truncatechars:30 }}</h5>
-                                <p class="card-text">{{ actu.lois_content|truncatechars:100 }}</p>
+                                <h5 class="card-title"><a href="{{ actu.get_absolute_url }}"> {{ actu.actu_title|truncatechars:20 }}</a></h5>
+                                <p class="card-text">{{ actu.actu_content|truncatechars:50}}</p>
                                 <p class="card-text"><small class="text-muted">{{ actu.created }}</small></p>
                             </div>
                         </div>
@@ -41,19 +41,34 @@
             {% endfor %}
         </div>
     </div>
-   
+
     <div class="actualite-body">
         <div class="card-deck actu-body-card">
             {% for actu in actualite_list %}
                 <div class="card actu-body-card-items">
                     <img src="{{ actu.actu_image.url }}" class="card-img-top actu-body-card-img" alt="{{ actu.actu_title }}">
                     <div class="card-body">
-                        <h5 class="card-title">{{ actu.actu_title|truncatechars:30 }}</h5>
-                        <p class="card-text">{{ actu.lois_content|truncatechars:100 }} </p>
+                        <h5 class="card-title"><a href="{{ actu.get_absolute_url }}"> {{ actu.actu_title|truncatechars:30 }}</a></h5>
+                        <p class="card-text">{{ actu.actu_content|truncatechars:100 }} </p>
                         <p class="card-text"><small class="text-muted">{{ actu.created }}</small></p>
                     </div>
                 </div>
             {% endfor %}
+        </div>
+        <div class="pagination">
+            <span class="step-links">
+                {% if actualite_list.has_previous %}          
+                    <a href="?page={{ actualite_list.previous_page_number }}">précédente</a>
+                {% endif %}
+
+                <span class="current">
+                {{ actualite_list.number }}
+                </span>
+
+                {% if actualite_list.has_next %}
+                    <a href="?page={{ actualite_list.next_page_number }}">suivante</a>
+                {% endif %}
+            </span>
         </div>
     </div>
 
