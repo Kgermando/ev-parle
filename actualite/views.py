@@ -36,51 +36,6 @@ def actualite_view_home(request):
     return render(request, template_name, context)
 
 
-def actualite_view_laterale(request):
-    """
-        Listes des actualités laterale
-    """
-    actualite = Actualite.objects.all().order_by("-created")
-
-    paginator_laterale = Paginator(actualite, 3)
-    page = request.GET.get('page')
-    try:
-        actualite_list_laterale = paginator_laterale.page(page)
-    except PageNotAnInteger:
-        actualite_list_laterale = paginator_laterale.page(1)
-    except EmptyPage:
-        actualite_list_laterale = paginator_laterale.page(paginator_laterale.num_pages)
-    
-    context = {
-        'actualite_list_laterale': actualite_list_laterale
-    }
-    template_name = 'pages/actualite.html'
-    return render(request, template_name, context)
-
-
-def actualite_view(request):
-    """
-        Listes des actualités
-    """
-    actualite = Actualite.objects.all().order_by("-created")
-    paginator = Paginator(actualite, 9)
-    page = request.GET.get('page')
-    try:
-        actualite_list = paginator.page(page)
-    except PageNotAnInteger:
-        actualite_list = paginator.page(1)
-    except EmptyPage:
-        actualite_list = paginator.page(paginator.num_pages)
-    
-    context = {
-        'actualite_list': actualite_list
-    }
-    template_name = 'pages/actualite.html'
-    return render(request, template_name, context)
-
-
-
-
 def actualite_view_detail(request, pk):
     context = {}
     template_name = 'pages/actualite-view.html'

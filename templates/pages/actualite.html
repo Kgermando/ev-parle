@@ -10,8 +10,8 @@
 </div> {% endcomment %}
 <div class="container actualite">
     <div class="actualite-home">
-        <div class="container actualite-header">
-            {% for actu in actualite_list_home %}
+        {% for actu in actualite_list_home %}
+            <div class="container actualite-header">
                 <div class="card actu-card-header">
                     <img src="{{ actu.actu_image.url }}" class="card-img-top" alt="{{ actu.actu_title }}">
                     <div class="card-body">
@@ -20,8 +20,8 @@
                         </p>
                     </div>
                 </div>
-            {% endfor %}
-        </div>
+            </div>
+        {% endfor %}
         <div class="actualite-side">
             {% for actu in actualite_list_laterale %}
                 <div class="card mb-3 actu-card-side">
