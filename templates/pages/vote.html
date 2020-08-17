@@ -17,89 +17,82 @@
             <p class="text-muted ">{{ sondage.created }}</p>
         </div>
 
-        <div class="container ">
-
-            <div class="alert alert-primary" role="alert">
-                Accord &mdash; <strong>{{ sondage.vote_yes }}</strong>
+        <div class="container vote-result">
+            <div class="container vote-person">
+                <div class="alert alert-primary" role="alert">
+                    <div class="container vote-person-title">Accord</div>
+                    <div class="container vote-person-vote"><strong>{{ sondage.vote_yes }}</strong></div>
+                </div>
             </div>
-
-            <div class="alert alert-secondary" role="alert">
-                Pas d'accord &mdash; <strong>{{ sondage.vote_no }}
+            <div class="container vote-person">
+                <div class="alert alert-danger" role="alert">
+                    <div class="container vote-person-title">Pas d'accord</div>
+                    <div class="container vote-person-vote"><strong>{{ sondage.vote_no }}</strong></div>
+                     
+                </div>
             </div>
-
-            <div class="alert alert-success" role="alert">
-                Neutre &mdash; <strong>{{ sondage.vote_null }}
+            <div class="container vote-person">
+                <div class="alert alert-success" role="alert">
+                    <div class="container vote-person-title">Neutre</div>
+                    <div class="container vote-person-vote">{{ sondage.vote_null }}</div>
+                </div>
             </div>
         </div>
 
-
-
-    </div>
-
-
-
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">{{ sondage.sondage_title }}</h3>
-                </div>
-
-                <div class="panel-body">
-                    <div class="row">
-                        <div class="col-lg-12">
-
-                            <p>{{ sondage.sondage_content }}</p>
-                        </div>
-                    </div>
-
-                <ul class="list-group">
-                    <li class="list-group-item">Accord &mdash; <strong>{{ sondage.vote_yes }}</strong></li>
-                    <li class="list-group-item">Pas d'accord &mdash; <strong>{{ sondage.vote_no }}</strong></li>
-                    <li class="list-group-item">Neutre &mdash; <strong>{{ sondage.vote_null }}</strong></li>
-                </ul>
-
-
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <hr />
-                        {% if user.is_active %}
-                            <form method="POST">
-                                {% csrf_token %}
-                                <div class="form-group">
-                                    <div class="radio">
-                                        <label>
-                                            <input type="radio" name="sondage" value="option1" required>
-                                                Je suis d'accord
-                                        </label> &nbsp;
-                                        <label>
-                                            <input type="radio" name="sondage" value="option2">
-                                                je ne suis pas d'accord
-                                        </label> &nbsp;
-                                        <label>
-                                            <input type="radio" name="sondage" value="option3">
-                                                je m'abstiens
-                                        </label> &nbsp;
-                                    </div>
+        <div class="container p-4">
+            <h3 class="container vote-title p-3">Donnez votre opinion ici</h3>
+            {% if user.is_active %}
+            <div class="container vote-person">
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="form-group radio vote-result">
+                        <div class="container vote-person">
+                            <div class="alert alert-primary" role="alert">
+                                <div class="container vote-title">Je suis d'accord</div>
+                                <div class="container vote-person-vote"> 
+                                    <input type="radio" name="sondage" value="option1" required>
                                 </div>
-
-                                <input type="hidden" name="id" value="1">
-
-                                <hr />
-
-                                <button type="submit" class="btn btn-info">
-                                    Submit
-                                </button>
-                            </form>
-                        {% else %}
-                            <div class="text-commentaire p-3">Pour donner votre opinion, veuillez d'abord vous connecter, si vous n'avez pas encore de compte merci de s'enregistrer</div>
-                        {% endif %}
+                            </div>
+                        </div>
+                        <div class="container vote-person">
+                            <div class="alert alert-danger" role="alert">
+                                <div class="container vote-title">je ne suis pas d'accord</div>
+                                <div class="container vote-person-vote">
+                                    <input type="radio" name="sondage" value="option2">
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="container vote-person">
+                            <div class="alert alert-success" role="alert">
+                                <div class="container vote-title">je m'abstiens</div>
+                                <div class="container vote-person-vote">
+                                    <input type="radio" name="sondage" value="option3">
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-
+                    <div class="container vote-btn">
+                        <button type="submit" class="btn btn-info">
+                                Soumettre
+                        </button>
+                    </div>
+                </form>
             </div>
+            {% else %}
+                <div class="card">
+                    <div class="card-body">
+                        <div class="text-commentaire">Pour donner votre opinion, veuillez d'abord vous connecter, si vous n'avez pas encore de compte merci de s'enregistrer</div>
+                    </div>
+                </div>
+            {% endif %}
         </div>
+
+
     </div>
+
+
+
+
 </div>
 {% endblock %}

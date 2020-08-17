@@ -31,3 +31,30 @@
 .vote-blue {
     color: #0c3468;
 }
+
+.vote-title {
+    text-align: center;
+    font-weight: 700;
+}
+
+.vote-result {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}
+
+.vote-person {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+    .vote-result {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+}
