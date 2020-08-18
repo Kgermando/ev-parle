@@ -5,7 +5,7 @@ from sondage.models import Sondage
 
 # Create your views here.
 def sondage_view(request):
-    sondage_list = Sondage.objects.all()
+    sondage_list = Sondage.objects.all().order_by('-created')
     context = {
         'sondage_list': sondage_list
     }
