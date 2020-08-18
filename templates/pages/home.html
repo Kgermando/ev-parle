@@ -218,7 +218,7 @@
                       <div class="card-body">
                           <h5 class="card-title"><a href="{% url 'sondage:vote' sondage.id %}"> {{ sondage.sondage_title|truncatechars:30 }}</a></h5>
                           <p class="card-text">
-                              {{ sondage.sondage_content|truncatechars:120 }}
+                              {{ sondage.sondage_content|truncatechars:110 }}
                           </p>
                           <p class="card-text">
                               <span class="vote-green ml-1 mr-4" data-toggle="tooltip" data-placement="top" title="D'accord">

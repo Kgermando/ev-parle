@@ -10,9 +10,10 @@ from actualite.models import Actualite
 # Create your views here.
 def actualite_view_home(request):
     actualite = Actualite.objects.all().order_by("-created")
+    actualite_view = Actualite.objects.all()
     paginator_home = Paginator(actualite, 1)
     paginator_laterale = Paginator(actualite, 3)
-    paginator = Paginator(actualite, 9)
+    paginator = Paginator(actualite_view, 9)
     page = request.GET.get('page')
     try:
         actualite_list_home = paginator_home.page(page)

@@ -50,6 +50,11 @@
     text-align: center;
 }
 
+.vote-result .vote-total {
+    font-weight: 700;
+    text-align: center;
+}
+
 @media screen and (max-width: 600px) {
     .vote-result {
         display: flex;

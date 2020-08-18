@@ -14,13 +14,13 @@ from sondage.models import Sondage
 
 def home_view(request):
     home_list = Home.objects.all()
-    actualite = Lois.objects.all().order_by("-created")
+    actualite = Actualite.objects.all().order_by("-created")
     lois = Lois.objects.all().order_by("-created")
-    sondage = Lois.objects.all().order_by("-created")
+    sondage = Sondage.objects.all().order_by("-created")
 
+    paginator_actualite = Paginator(actualite, 2)
     paginator_lois = Paginator(lois, 2)
-    paginator_actualite = Paginator(lois, 2)
-    paginator_sondage = Paginator(lois, 2)
+    paginator_sondage = Paginator(sondage, 2)
     page = request.GET.get('page')
     try:
         actualite_list = paginator_actualite.page(page)

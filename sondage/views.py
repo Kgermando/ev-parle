@@ -13,7 +13,6 @@ def sondage_view(request):
     return render(request, template_name, context)
 
 
-
 def sondage_view_detail(request, sondage_id):
     sondage_list = Sondage.objects.get(id= sondage_id)
     context = {

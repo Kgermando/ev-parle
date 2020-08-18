@@ -51,10 +51,14 @@
          <div class="card">
             <div class="card-body">
                 <p class="about-body-text">
-                    - Formations et renforcement des capacités <br>
-                    - Plaidoyer <br>
-                    - Promotion et vulgarisation des lois <br>
-                    - Mobilisation et participation citoyenne. 
+                    <ul class="list-group">
+                        <li class="list-group-item">Formations et renforcement des capacités</li>
+                        <li class="list-group-item">Plaidoyer</li>
+                        <li class="list-group-item">Promotion et vulgarisation des lois</li>
+                        <li class="list-group-item">Mobilisation et participation citoyenne.</li>
+                    </ul>
+                    <br>
+                    <br>                 
                 </p>
             </div>
         </div>
@@ -82,131 +86,20 @@
     <div class="wrapper">
         <h1>Notre équipes</h1>
         <div class="team">
-            <div class="team_member shadow-lg">
-                <div class="team_img">
-                    <img src="{% static 'img/2.jpg' %}" alt="Team_image">
-                </div>
-                <h3><a href="">Honorable </a></h3>
-                <p class="role">Coordonateur</p>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quaerat tempora, voluptatum 
-                    quas facere dolorum aut cumque nihil nulla harum nemo distinctio quam blanditiis dignissimos.
-                </p>
-            </div>
-            <div class="team_member shadow-lg">
-                <div class="team_img">
-                    <img src="{% static 'img/2.jpg' %}" alt="Team_image">
-                </div>
-                <h3><a href="">Paul Doe</a></h3>
-                <p class="role">Tester</p>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quaerat tempora, voluptatum 
-                    quas facere dolorum aut cumque nihil nulla harum nemo distinctio quam blanditiis dignissimos.
-                </p>
-            </div>
-            <div class="team_member shadow-lg">
-                <div class="team_img">
-                    <img src="{% static 'img/2.jpg' %}" alt="Team_image">
-                </div>
-                <h3><a href="">Paul Doe</a></h3>
-                <p class="role">Support Lead</p>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quaerat tempora, voluptatum quas 
-                    facere dolorum aut cumque nihil nulla harum nemo distinctio quam blanditiis dignissimos.
-                </p>
-            </div>
-
+            {% for team in team_list %}
                 <div class="team_member shadow-lg">
-                <div class="team_img">
-                    <img src="{% static 'img/2.jpg' %}" alt="Team_image">
+                    <div class="team_img">
+                        <img src="{{ team.team_image.url }}" alt="{{ team.team_name }}">
+                    </div>
+                    <h3><a href="{% url 'ourteam:team' team.id %}">{{ team.team_name }}</a></h3>
+                    <p class="role">{{ team.team_designation }}</p>
+                    <p>
+                       {{ team.team_description|truncatechars:100 }}
+                    </p>
                 </div>
-                <h3><a href="">Paul Doe</a></h3>
-                <p class="role">Support Lead</p>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quaerat tempora, voluptatum quas 
-                    facere dolorum aut cumque nihil nulla harum nemo distinctio quam blanditiis dignissimos.
-                </p>
-            </div>
-                <div class="team_member shadow-lg">
-                <div class="team_img">
-                    <img src="{% static 'img/2.jpg' %}" alt="Team_image">
-                </div>
-                <h3><a href="">Paul Doe</a></h3>
-                <p class="role">Support Lead</p>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quaerat tempora, voluptatum quas 
-                    facere dolorum aut cumque nihil nulla harum nemo distinctio quam blanditiis dignissimos.
-                </p>
-            </div>
-            <div class="team_member shadow-lg">
-                <div class="team_img">
-                    <img src="{% static 'img/2.jpg' %}" alt="Team_image">
-                </div>
-                <h3><a href="">Paul Doe</a></h3>
-                <p class="role">Support Lead</p>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quaerat tempora, voluptatum quas 
-                    facere dolorum aut cumque nihil nulla harum nemo distinctio quam blanditiis dignissimos.
-                </p>
-            </div>
-              <div class="team_member shadow-lg">
-                <div class="team_img">
-                    <img src="{% static 'img/2.jpg' %}" alt="Team_image">
-                </div>
-                <h3><a href="">Paul Doe</a></h3>
-                <p class="role">Support Lead</p>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quaerat tempora, voluptatum quas 
-                    facere dolorum aut cumque nihil nulla harum nemo distinctio quam blanditiis dignissimos.
-                </p>
-            </div>
-            <div class="team_member shadow-lg">
-                <div class="team_img">
-                    <img src="{% static 'img/2.jpg' %}" alt="Team_image">
-                </div>
-                <h3><a href="">Paul Doe</a></h3>
-                <p class="role">Support Lead</p>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quaerat tempora, voluptatum quas 
-                    facere dolorum aut cumque nihil nulla harum nemo distinctio quam blanditiis dignissimos.
-                </p>
-            </div>
-            <div class="team_member shadow-lg">
-                <div class="team_img">
-                    <img src="{% static 'img/2.jpg' %}" alt="Team_image">
-                </div>
-                <h3><a href="">Paul Doe</a></h3>
-                <p class="role">Support Lead</p>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quaerat tempora, voluptatum quas 
-                    facere dolorum aut cumque nihil nulla harum nemo distinctio quam blanditiis dignissimos.
-                </p>
-            </div>
-            <div class="team_member shadow-lg">
-                <div class="team_img">
-                    <img src="{% static 'img/2.jpg' %}" alt="Team_image">
-                </div>
-                <h3><a href="">Paul Doe</a></h3>
-                <p class="role">Support Lead</p>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quaerat tempora, voluptatum quas 
-                    facere dolorum aut cumque nihil nulla harum nemo distinctio quam blanditiis dignissimos.
-                </p>
-            </div>
-            <div class="team_member shadow-lg">
-                <div class="team_img">
-                    <img src="{% static 'img/2.jpg' %}" alt="Team_image">
-                </div>
-                <h3><a href="">Paul Doe</a></h3>
-                <p class="role">Support Lead</p>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quaerat tempora, voluptatum quas 
-                    facere dolorum aut cumque nihil nulla harum nemo distinctio quam blanditiis dignissimos.
-                </p>
-            </div>
+            {% endfor %}
         </div>
     </div>	
 </div>
-
 
 {% endblock content %}
