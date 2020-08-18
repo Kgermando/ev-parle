@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Home(models.Model):
+    # home_number = models.IntegerField(default=0, unique=True)
     home_title = models.CharField(max_length=100)
     home_description = models.CharField(max_length=300)
     home_image = models.ImageField(upload_to='home_img/')

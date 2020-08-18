@@ -91,7 +91,7 @@
                     <div class="team_img">
                         <img src="{{ team.team_image.url }}" alt="{{ team.team_name }}">
                     </div>
-                    <h3><a href="{% url 'ourteam:team' team.id %}">{{ team.team_name }}</a></h3>
+                    <h3><a href="{% url 'ourteam:team' team.id %}">{{ team.team_name|truncatechars:25 }}</a></h3>
                     <p class="role">{{ team.team_designation }}</p>
                     <p>
                        {{ team.team_description|truncatechars:100 }}
