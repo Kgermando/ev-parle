@@ -13,22 +13,21 @@
         </div>
         <div class="order-1 col-12 col-md-6 order-lg-2 col-lg-4 footer-col m-2 m-sm-0">
             <div class="text-center">
-                <ul class="list-unstyled nav-links">
-                    {% comment %} <li><a href="{% url 'home' %}">Home</a></li>
-                    <li><a href="{% url 'menu' %}">Menu</a></li>
-                    <li><a href="{% url 'about' %}">About</a></li>
-                    <li><a href="{% url 'profile' %}">My Account</a></li> {% endcomment %}
+                <ul class="list-unstyled nav-links text-white">
+                    <li><a href="{% url 'app:home' %}" class="footer-link">Home</a></li>
+                    <li><a href="{% url 'app:lois' %}" class="footer-link">Lois</a></li>
+                    <li><a href="{% url 'ourteam:about' %}" class="footer-link">About</a></li>
+                    <li><a href="{% url 'login' %}" class="footer-link">Mon compte</a></li>
                 </ul>
             </div>
             <hr class="d-block d-md-none mx-auto">
         </div>
         <div class="order-2 col-12 col-md-6 col-lg-4 footer-col mb-2 mb-sm-0">
             <div>
-                <h4 class="text-white">Opening Times</h4>
+                <h4 class="text-white">Temps d'ouverture</h4>
                 <ul class="list-unstyled nav-links text-white">
-                    <li><i class="far fa-clock"></i>&nbsp;&nbsp;Monday to Friday: 11:00 - 00:00</li>
-                    <li><i class="far fa-clock"></i>&nbsp;&nbsp;Saturday: 14:00 - 02:00</li>
-                    <li><i class="far fa-clock"></i>&nbsp;&nbsp;Sunday: 13:00 - 00:00</li>
+                    <li><i class="far fa-clock"></i>&nbsp;&nbsp;Lundi du Vendredi : 08:30 - 16:30</li>
+                    <li><i class="far fa-clock"></i>&nbsp;&nbsp;Samedi: 08:30 - 13:00</li>
                 </ul>
             </div>
             <hr class="d-block d-md-none mx-auto">

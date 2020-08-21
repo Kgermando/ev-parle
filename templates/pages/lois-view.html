@@ -55,7 +55,12 @@
                     </div>
                 </form>
             {% else %}
-                <div class="text-commentaire p-3">Pour donner votre opinion, veuillez d'abord vous connecter</div>
+                <div class="alert alert-danger" role="alert">
+                    <h4 class="alert-heading">Oups!</h4>
+                    <p>Pour donner votre opinion, veuillez d'abord vous connecter, si vous n'avez pas encore de 
+                        compte merci de s'enregistrer.
+                    </p>
+                </div>
             {% endif %}
         </div>
     </div>

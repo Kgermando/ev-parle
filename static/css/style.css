@@ -7,6 +7,11 @@
     font-style: normal;
 }
 
+*{
+    margin: 0;
+    width: 100%;
+}
+
 body {
     font-family: 'Raleway', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 16px;
@@ -35,7 +40,12 @@ body {
 footer{
     background-color: #000000;
     font-size: 12px;
-    text-align: center;
+    /* text-align: center; */
+}
+
+.footer-link {
+    text-decoration: none;
+    color: #ffffff;
 }
 
 hr {

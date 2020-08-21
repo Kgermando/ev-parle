@@ -37,16 +37,15 @@
                 </div>
             </div>
         </div>
-        <div class="container vote-total">
+        <div class="container ">
             <div class="alert alert-dark" role="alert">
-                <div class="container vote-person-title">Total</div>
-                <div class="container vote-person-vote">{{ sondage.total }}</div>
+                <div class="container vote-total">Total: {{ sondage.total }}</div>
             </div>
         </div>
 
         <div class="container p-4">
-            <h3 class="container vote-title p-3">Donnez votre opinion ici</h3>
             {% if user.is_active %}
+            <h3 class="container vote-title p-3">Donnez votre opinion ici</h3>
             <div class="container vote-person">
                 <form method="POST">
                     {% csrf_token %}
@@ -85,10 +84,11 @@
                 </form>
             </div>
             {% else %}
-                <div class="card">
-                    <div class="card-body">
-                        <div class="text-commentaire">Pour donner votre opinion, veuillez d'abord vous connecter, si vous n'avez pas encore de compte merci de s'enregistrer</div>
-                    </div>
+                <div class="alert alert-danger" role="alert">
+                    <h4 class="alert-heading">Oups!</h4>
+                    <p>Pour donner votre opinion, veuillez d'abord vous connecter, si vous n'avez pas encore de 
+                        compte merci de s'enregistrer.
+                    </p>
                 </div>
             {% endif %}
         </div>
