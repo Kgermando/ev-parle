@@ -34,17 +34,15 @@
   </a>
 </div>
 
-<div class="row">
-  <div class="col-md-6 offset-md-3">
-    <div class="card titre">
-      <div class="card-body">
-        <h5 class="card-title">Bienvenue sur le site des jeunes parlementaires</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-      </div>
+
+  <div class="card">
+    <div class="card-body titre">
+      <h5 class="card-title">Bienvenue sur le site des jeunes parlementaires</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
     </div>
   </div>
-</div>
-       <hr>
+
+  <hr>
 
 <div class="container">
   <div class="card-deck m row">
@@ -124,19 +122,15 @@
 
 
 <div class="container">
-  <div class="row n">
-    <div class="col-md-6 offset-md-3">
-      <div class="card titre">
-        <div class="card-body">
-          <h5 class="card-title">Actualités</h5>
-      </div>
+    <div class="card titre">
+      <div class="card-body">
+        <h5 class="card-title">Actualités</h5>
     </div>
-  </div>
 </div>
 <div class="row">
   {% for actu in actualite_list %}
     <div class="col-md-6">
-      <div class="card mb-3 m">
+      <div class="card mb-3">
         <div class="row no-gutters">
           <div class="col-md-4">
             <img src="{{actu.actu_image.url}}" class="card-img" alt="{{ actu.actu_title }}">
@@ -154,20 +148,18 @@
   {% endfor %}
 </div>
 
+
+
 <div class="container">
-  <div class="row n">
-    <div class="col-md-6 offset-md-3">
       <div class="card titre">
         <div class="card-body">
           <h5 class="card-title">Propositions des lois</h5>
       </div>
-    </div>
-  </div>
 </div>
 <div class="row">
   {% for lois in lois_list %}
     <div class="col-md-6">
-      <div class="card mb-3 m">
+      <div class="card mb-3">
         <div class="row no-gutters">
           <div class="col-md-4">
             <img src="{{lois.lois_image.url}}" class="card-img" alt="{{ lois.lois_title }}">
@@ -187,19 +179,15 @@
 
 
 <div class="container">
-  <div class="row n">
-    <div class="col-md-6 offset-md-3">
-      <div class="card titre">
-        <div class="card-body">
-          <h5 class="card-title">Sondages sur les lois</h5>
-      </div>
-    </div>
+  <div class="card titre">
+    <div class="card-body">
+      <h5 class="card-title">Sondages sur les propositions des lois</h5>
   </div>
 </div>
 <div class="row">
   {% for sondage in sondage_list %}
     <div class="col-md-6">
-      <div class="card mb-3 m">
+      <div class="card mb-3">
         <div class="row no-gutters">
           <div class="col-md-4">
             <img src="{{ sondage.sondage_image.url }}" class="card-img" alt="{{ sondage.sondage_title }}">
@@ -241,10 +229,6 @@
     </div>
   {% endfor %}
 </div>
-
-
-
-
 
 
 {% endblock content %}
