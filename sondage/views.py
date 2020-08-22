@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 
 from sondage.models import Sondage
@@ -24,7 +24,12 @@ def sondage_view_detail(request, sondage_id):
 
 # @login_required(login_url='/accounts/login/')
 def vote(request, sondage_id):
-    sondage = Sondage.objects.get(id= sondage_id)
+    # sondage = Sondage.objects.get(id= sondage_id)
+    sondage = get_object_or_404(Sondage, pk=sondage_id)
+    # if not sondage.user_can_vote(request.user):
+    #     messages.error(
+    #         request, "You already voted this poll", extra_tags='alert alert-warning alert-dismissible fade show')
+    #     return redirect("sondage:sondage")
 
     if request.method == 'POST':
         selected_option = request.POST['sondage']
@@ -45,3 +50,6 @@ def vote(request, sondage_id):
     }
     template_name = 'pages/vote.html'
     return render(request, template_name, context)
+
+
+

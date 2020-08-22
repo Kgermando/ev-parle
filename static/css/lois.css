@@ -4,6 +4,9 @@
 
 .lois-header {
     background-color: #022464;
+    /* background-image: url('../img/rdc-ass-nat.jpg');
+    background-repeat: no-repeat; */
+    width: 100%;
     color: #ffcd40;
     font-size: 700;
     padding-top: 60px;
